@@ -1,0 +1,11 @@
+ - name: Patch Ubuntu Servers
+  hosts: ubuntu_servers
+  become: yes
+  tasks:
+    - name: Update and Upgrade Packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+    - name: Remove Unused Packages
+      apt:
+        autoremove: yes
